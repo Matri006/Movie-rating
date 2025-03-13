@@ -1,0 +1,275 @@
+/* 🌸 Общие стили */
+* {
+    margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+}
+
+body {
+        background: #ffecf1; /* Нежно-розовый */
+        color: #6d214f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 80px; /* Добавляем отступ сверху, чтобы учесть высоту навигации */
+}
+
+/* 🌸 Навигация */
+.navbar {
+    width: 100%;
+        background: linear-gradient(90deg, #ff9eb3, #ff66a3);
+        padding: 15px 0;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 🌸 Контейнер для авторизации и регистрации */
+.auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.4);
+    width: 380px;
+    text-align: center;
+    margin-top: 100px;
+    transition: 0.3s ease-in-out;
+}
+
+.auth-container:hover {
+    transform: translateY(-5px);
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #ff99c8;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.auth-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 25px;
+}
+
+.auth-buttons button.active {
+    background: #ff4785;
+}
+
+/* 🌸 Формы */
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ff66a3;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.auth-form input:focus {
+    border-color: #d1478f;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background: #ff4785;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.auth-form button:hover {
+    background: #d1478f;
+}
+
+/* 🌸 Карточки фильмов */
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.movie {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+}
+
+.movie img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* 🌸 Поле поиска */
+.search-container {
+    margin: 20px;
+        text-align: center;
+}
+
+.search-container input {
+    width: 350px;
+    padding: 12px;
+    border: 2px solid #ff69b4;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-container input:focus {
+    border-color: #d1478f;
+}
+/* 🌸 Контейнер настроек */
+.settings-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.3);
+    width: 400px;
+    text-align: center;
+    margin-top: 120px;
+    transition: 0.3s ease-in-out;
+}
+
+.settings-container h2 {
+    color: #ff4785;
+    margin-bottom: 20px;
+}
+
+/* 🌸 Аватар */
+.profile-picture {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ff4785;
+}
+
+.profile-picture button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.profile-picture button:hover {
+    background: #d1478f;
+}
+
+/* 🌸 Форма */
+.settings-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-container label {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #6d214f;
+}
+
+.settings-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ff66a3;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.settings-container input:focus {
+    border-color: #d1478f;
+}
+
+/* 🌸 Кнопка сохранения */
+.settings-container button {
+    width: 100%;
+    padding: 12px;
+    background: #ff4785;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.settings-container button:hover {
+    background: #d1478f;
+}

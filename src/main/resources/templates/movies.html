@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Все фильмы</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="navbar">
+  <ul>
+    <li><a th:href=@{/home}>Главная</a></li>
+    <li><a th:href=@{/movies}>Фильмы</a></li>
+    <li><a th:href=@{/add-movie}>Добавить фильм</a></li>
+    <li><a th:href=@{/settings}>Настройки</a></li>
+    <li><a th:href="@{/logout}">Выход</a></li>
+  </ul>
+</div>
+
+<div class="search-container">
+  <input type="text" id="search" placeholder="Поиск фильма...">
+</div>
+
+<div class="movies">
+
+  <div th:each="movie : ${movies}" class="movie">
+    <h3 th:text="${movie.name}" name = "name">Название фильма</h3>
+    <h3 th:text="${movie.genre}" name = "genre">Жанр</h3>
+    <img th:src="${movie.url}" th:alt="${movie.name}">
+    <p>⭐ <span th:text="${movie.raiting}" name = "raiting">8.5</span></p>
+
+    <form th:action="@{/movies/rate}" method="post" class="rating-form">
+      <input type="hidden" name="id" th:value="${movie.id}" />
+      <div class="rating-stars">
+        <button type="submit" name="ball" th:value="1">★</button>
+        <button type="submit" name="ball" th:value="2">★</button>
+        <button type="submit" name="ball" th:value="3">★</button>
+        <button type="submit" name="ball" th:value="4">★</button>
+        <button type="submit" name="ball" th:value="5">★</button>
+        <button type="submit" name="ball" th:value="6">★</button>
+        <button type="submit" name="ball" th:value="7">★</button>
+        <button type="submit" name="ball" th:value="8">★</button>
+        <button type="submit" name="ball" th:value="9">★</button>
+        <button type="submit" name="ball" th:value="10">★</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<style>
+  .rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .rating-stars button {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff4785;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .rating-stars button:hover,
+  .rating-stars button:focus {
+    transform: scale(1.2);
+    color: #d1478f;
+  }
+</style>
+
+<script>
+  document.getElementById('search').addEventListener('input', function() {
+      let query = this.value.toLowerCase();
+document.querySelectorAll('.movie').forEach(movie => {
+    let title = movie.querySelector('h3').textContent.toLowerCase();
+    let image = movie.querySelector('img'); // Находим изображение внутри .movie
+    if (title.includes(query)) {
+        movie.style.display = ''; // Показываем элемент
+        movie.style.transform = 'scale(1)'; // Возвращаем обычный размер
+        if (image) {
+            image.style.transform = 'scale(1)'; // Изображение в обычном размере
+        }
+    } else {
+        movie.style.display = 'none'; // Скрываем элемент
+        if (image) {
+            image.style.transform = 'scale(0.8)'; // Уменьшаем изображение
+        }
+    }
+});
+  });
+</script>
+
+</body>
+</html>

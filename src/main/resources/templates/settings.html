@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройки профиля</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="navbar">
+    <ul>
+        <li><a th:href=@{/home}>Главная</a></li>
+        <li><a th:href=@{/movies}>Фильмы</a></li>
+        <li><a th:href=@{/add-movie}>Добавить фильм</a></li>
+        <li><a th:href=@{/settings} class="active">Настройки</a></li>
+        <li><a th:href="@{/logout}">Выход</a></li>
+    </ul>
+</div>
+
+<div class="settings-container">
+    <h2>Настройки профиля</h2>
+
+
+    <form th:action="@{/settings}" method="post">
+
+        <label for="username">Имя пользователя</label>
+        <input type="text" id="username"  name="username" placeholder="Ваше имя" required>
+
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" placeholder="Ваш пароль" required>
+
+        <label for="repeatPassword">Повторите пароль</label>
+        <input type="password" id="repeatPassword"  name="repeatPassword" placeholder="Повторите пароль" required>
+
+        <button type="submit">Сохранить изменения</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход и Регистрация</title>
+    <link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-buttons">
+        <button id="showLogin" class="active">Войти</button>
+        <button id="showRegister">Регистрация</button>
+    </div>
+
+    <form th:action= "@{/login}" method = "post" id="loginForm" class="auth-form active">
+        <h2>Вход</h2>
+        <input name="username" type="text" placeholder="Имя пользователя" required>
+        <input name = "password" type="password" placeholder="Пароль" required>
+        <button type="submit">Войти</button>
+    </form>
+
+    <form th:action= "@{/register}" method = "post" id="registerForm" class="auth-form">
+        <h2>Регистрация</h2>
+        <input  name = "username" type="text" placeholder="Имя пользователя" required>
+        <input name = "email" type="email" placeholder="Email" required>
+        <input name = "password" type="password" placeholder="Пароль" required>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+
+<script>
+    const showLogin = document.getElementById('showLogin');
+    const showRegister = document.getElementById('showRegister');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    showLogin.addEventListener('click', () => {
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+        showLogin.classList.add('active');
+        showRegister.classList.remove('active');
+    });
+
+    showRegister.addEventListener('click', () => {
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+        showRegister.classList.add('active');
+        showLogin.classList.remove('active');
+    });
+</script>
+
+</body>
+</html>

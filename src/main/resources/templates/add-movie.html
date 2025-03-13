@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить фильм</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Навигация -->
+<div class="navbar">
+    <ul>
+        <li><a th:href=@{/home}>Главная</a></li>
+        <li><a th:href=@{/movies}>Фильмы</a></li>
+        <li><a th:href=@{/add-movie}>Добавить фильм</a></li>
+        <li><a th:href=@{/settings}>Настройки</a></li>
+        <li><a th:href="@{/logout}">Выход</a></li>
+    </ul>
+</div>
+
+<!-- Контейнер для добавления фильма -->
+<div class="auth-container">
+    <h2>Добавить фильм</h2>
+    <!-- Добавил класс active для отображения формы -->
+    <form class="auth-form active" action="/add-movie" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Название фильма" required>
+        <input type="text" name = "genre" placeholder="Жанр" required>
+        <input type="file" name = "url"  accept="image/*">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>

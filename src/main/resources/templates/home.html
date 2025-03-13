@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Главная</title>
+  <link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+
+<div class="navbar">
+  <ul>
+    <li><a th:href="@{/home}">Главная</a></li>
+    <li><a th:href="@{/movies}">Фильмы</a></li>
+    <li><a th:href="@{/add-movie}">Добавить фильм</a></li>
+    <li><a th:href="@{/settings}">Настройки</a></li>
+    <li><a th:href="@{/logout}">Выход</a></li>
+  </ul>
+</div>
+
+<h1>Рекомендованные фильмы</h1>
+<div th:each="movie : ${movies}" class="movies">
+  <div class="movie">
+    <img th:src="${movie.url}" th:alt="${movie.name}">
+    <h3 th:text = "${movie.name}" name = "name">Название фильма</h3>
+    <h3 th:text = "${movie.genre}" name = "genre">Жанр фильма</h3>
+    <p >⭐ <span th:text="${movie.raiting}" name = "raiting">8.5</span></p>
+  </div>
+</div>
+
+</body>
+</html>
